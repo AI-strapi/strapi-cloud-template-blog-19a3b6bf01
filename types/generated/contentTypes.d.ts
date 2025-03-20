@@ -410,6 +410,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    articles: Schema.Attribute.Relation<'manyToMany', 'api::article.article'>;
     content: Schema.Attribute.RichText;
     cover: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
     createdAt: Schema.Attribute.DateTime;
@@ -426,9 +427,10 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    publishedTime: Schema.Attribute.String;
+    releated: Schema.Attribute.Relation<'manyToMany', 'api::article.article'>;
     slug: Schema.Attribute.UID<'title'>;
     subTitle: Schema.Attribute.RichText;
+    timeToRead: Schema.Attribute.String;
     title: Schema.Attribute.String;
     titleImg: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     updatedAt: Schema.Attribute.DateTime;
